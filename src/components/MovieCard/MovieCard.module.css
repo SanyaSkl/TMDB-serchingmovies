@@ -1,0 +1,8 @@
+.moviesCard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: stretch;
+    padding: 10px;
+    width: 200px;
+}

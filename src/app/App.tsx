@@ -1,11 +1,10 @@
-import './App.module.css'
+import {Routing} from "../components/Routing/Routing.tsx";
 
 
-export function App() {
-
+export const App = () => {
     return (
-        <>
-
-        </>
+        <div>
+            <Routing/>
+        </div>
     )
 }
