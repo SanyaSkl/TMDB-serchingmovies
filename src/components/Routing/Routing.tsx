@@ -7,7 +7,8 @@ import {NotFoundPage} from "../../pages/NotFoundPage/NotFoundPage.tsx";
 import {FilteredPage} from "../../pages/FilteredPage/FilteredPage.tsx";
 import {SearchPage} from "../../pages/SearchPage/SearchPage.tsx";
 import {CategoryPage} from "../../pages/CategoryPage/CategoryPage.tsx";
-import {Path} from "../../constants.ts";
+import {Path} from "../../constants";
+
 
 
 export const Routing = () => {

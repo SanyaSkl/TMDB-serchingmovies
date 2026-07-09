@@ -6,3 +6,9 @@
     padding: 10px;
     width: 200px;
 }
+
+.buttonLike {
+    background-color: inherit;
+    border: none;
+    padding: 10px;
+}
