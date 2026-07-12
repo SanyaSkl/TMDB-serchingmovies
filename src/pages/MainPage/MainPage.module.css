@@ -1,0 +1,21 @@
+.moviesRow {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.moviesRow::-webkit-scrollbar {
+    height: 8px;
+}
+
+.moviesRow::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 20px;
+}
+
+.moviesRow::-webkit-scrollbar-track {
+    background: transparent;
+}

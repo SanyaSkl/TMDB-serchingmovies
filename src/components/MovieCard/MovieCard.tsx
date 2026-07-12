@@ -20,12 +20,12 @@ export const MovieCard = ({movie}: Props) => {
     }
 
     return (
-        <div>
+        <div className={style.moviesCard}>
             {movie.poster_path === null ?
                 <img src='https://placehold.co/200x300?text=No+Image' alt={'poster'}/> :
-                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={'poster'}/>}
+                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='no poster'/>}
             <h3>{movie.title}</h3>
-            <span>⭐ {movie.vote_average}</span>
+            <span className={style.rating}> ⭐ {movie.vote_average.toFixed(1)}</span>
             <button className={style.buttonLike} onClick={handleFavorites}>{isFavorite ? "❤️" : "🤍"}</button>
         </div>
     )

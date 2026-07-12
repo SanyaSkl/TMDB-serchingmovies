@@ -1,6 +1,7 @@
 import {useAppSelector} from "../../hooks/useAppSelector.ts";
 import type {Movie} from "../../types/types.ts";
 import {MovieCard} from "../../components/MovieCard/MovieCard.tsx";
+import style from "./FavoritesPage.module.css";
 
 
 export const FavoritesPage = () => {
@@ -13,7 +14,7 @@ export const FavoritesPage = () => {
         </div>
     }
     return (
-        <div>
+        <div className={style.favoritePage}>
             {favorites.map((movie: Movie) => (
                 <MovieCard key={movie.id} movie={movie}/>
             ))}

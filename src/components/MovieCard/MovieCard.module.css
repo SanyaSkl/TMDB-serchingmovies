@@ -1,14 +1,41 @@
 .moviesCard {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    align-items: stretch;
-    padding: 10px;
     width: 200px;
+    flex-shrink: 0;
+
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+
+    transition: .2s;
+}
+
+.moviesCard:hover {
+    transform: translateY(-5px);
+}
+
+.moviesCard img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.moviesCard h3 {
+    padding: 8px 10px 0;
+    font-size: 18px;
+}
+
+.rating {
+    display: block;
+    padding: 5px 10px;
 }
 
 .buttonLike {
-    background-color: inherit;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: none;
     border: none;
-    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
 }

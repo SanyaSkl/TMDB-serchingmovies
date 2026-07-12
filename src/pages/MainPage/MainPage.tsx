@@ -1,6 +1,6 @@
 import {useGetPopularMovieQuery} from "../../api/tmdbApi.ts";
 import {MovieCard} from "../../components/MovieCard/MovieCard.tsx";
-import styles from "../../components/MovieCard/MovieCard.module.css"
+import style from "./MainPage.module.css"
 
 export const MainPage = () => {
 
@@ -16,10 +16,14 @@ export const MainPage = () => {
 
     return (
         <>
-            <div>Main Page {data?.results?.length}</div>
-            <div className={styles.moviesCard}>
+            <h2>Trending</h2>
+            {/*Main Page {data?.results.length}*/}
+            <div className={style.moviesRow}>
                 {data?.results?.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                    <MovieCard
+                        key={movie.id}
+                        movie={movie}
+                    />
                 ))}
             </div>
         </>
