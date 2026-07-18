@@ -1,6 +1,6 @@
 export const Path = {
     Main: "/",
-    Category: "category",
+    Category: "category/:category",
     Filtered: "filtered",
     Search: "search",
     Favorites: "favorites",

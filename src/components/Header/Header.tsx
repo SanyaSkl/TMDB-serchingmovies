@@ -15,7 +15,7 @@ export const Header = () => {
                     </NavLink>
                 </div>
                 <nav className={style.nav}>
-                    <NavLink to={Path.Category}>Category </NavLink>
+                    <NavLink to={"/category/popular"}>Category </NavLink>
                     <NavLink to={Path.Filtered}>Filtered </NavLink>
                     <NavLink to={Path.Search}>Search </NavLink>
                     <NavLink to={Path.Favorites}>Favorites</NavLink>

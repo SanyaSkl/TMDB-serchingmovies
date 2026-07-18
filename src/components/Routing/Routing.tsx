@@ -1,5 +1,5 @@
 import {MovieDetailsPage} from "../../pages/MovieDetailsPage/MovieDetailsPage.tsx";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import {MainPage} from "../../pages/MainPage/MainPage.tsx";
 import {FavoritesPage} from "../../pages/FavoritesPage/FavoritesPage.tsx";
 import {Layout} from "../Layout/Layout.tsx";
@@ -8,7 +8,6 @@ import {FilteredPage} from "../../pages/FilteredPage/FilteredPage.tsx";
 import {SearchPage} from "../../pages/SearchPage/SearchPage.tsx";
 import {CategoryPage} from "../../pages/CategoryPage/CategoryPage.tsx";
 import {Path} from "../../constants";
-
 
 
 export const Routing = () => {
@@ -25,6 +24,7 @@ export const Routing = () => {
                 <Route path={Path.MovieDetailsPage} element={<MovieDetailsPage/>}/>
 
                 <Route path={Path.NotFoundPage} element={<NotFoundPage/>}/>
+                <Route path="/category" element={<Navigate to="/category/popular" replace/>}/>
             </Route>
         </Routes>
     )
