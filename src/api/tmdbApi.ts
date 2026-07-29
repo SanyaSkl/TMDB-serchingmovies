@@ -13,8 +13,11 @@ export const tmdbApi = createApi({
         }),
         getCategoryMovies: build.query<MovieResponse, {category: string, page: number}>({
             query: ({category, page}) => `/movie/${category}?page=${page}&api_key=${import.meta.env.VITE_API_KEY}`
-        })
+        }),
+        getSearchMovies: build.query<MovieResponse, {query: string, page:number}>({
+            query: ({query, page}) => `/search/movie?query=${query}&page=${page}&api_key=${import.meta.env.VITE_API_KEY}`
+        }),
     }),
 });
 
-export const { useGetPopularMovieQuery, useGetCategoryMoviesQuery } = tmdbApi;
+export const { useGetPopularMovieQuery, useGetCategoryMoviesQuery, useGetSearchMoviesQuery } = tmdbApi;

@@ -5,11 +5,13 @@ import style from "./Layout.module.css"
 
 export const Layout = () => {
     return (
-        <div>
+        <div className={style.layout}>
             <Header/>
 
-            <main className={style.pageContainer}>
-                <Outlet/>
+            <main className={style.main}>
+                <div className={style.pageContainer}>
+                    <Outlet/>
+                </div>
             </main>
 
             <Footer/>
