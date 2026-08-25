@@ -1,20 +1,55 @@
+:root {
+  --background-body: #f5f5f5;
+  --background-card: #ffffff;
+  --background-secondary: #ffffff;
+  --text-body: #333333;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  /* Тёмная тема */
+  --background-body: #121212;
+  --text-body: #ffffff;
+  --background-secondary: #1e1e1e;
+  --background-card: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --border-color: #333333;
+}
+
+/* ===== Базовые сбросы ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== Тело страницы ===== */
 body {
   font-family: "Source Sans Pro", Arial, sans-serif;
-  background: #f5f5f5;
-  color: #333;
+  background-color: var(--background-body);
+  color: var(--text-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ===== Изображения ===== */
 img {
   display: block;
   max-width: 100%;
 }
 
+/* ===== Ссылки ===== */
 a {
   text-decoration: none;
+}
+
+/* ===== Контейнер страниц ===== */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px;
 }

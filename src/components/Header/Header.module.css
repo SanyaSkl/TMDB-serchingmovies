@@ -1,13 +1,15 @@
 .header {
-    height: 64px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-shrink: 0;
+    justify-content: space-between;
     padding: 0 40px;
-    width: 100%;
-    background: #032541;
-    color: white;
+    height: 72px;
+    background-color: #032541;
+    color: #fff;
+}
+
+.header[data-theme="dark"] {
+    background-color: #1a1a2e;
 }
 
 .menu {
@@ -38,4 +40,24 @@
 
 .nav a.active {
     color: #01b4e4;
+}
+
+.themeToggle {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.themeToggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
 }

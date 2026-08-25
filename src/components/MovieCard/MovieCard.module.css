@@ -1,13 +1,11 @@
 .moviesCard {
     width: 200px;
     flex-shrink: 0;
-
-    background: #fff;
+    background: var(--background-secondary, #fff);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,.15);
-
-    transition: .2s;
+    box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, .15));
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
 }
 
 .moviesCard:hover {
@@ -24,11 +22,15 @@
 .moviesCard h3 {
     padding: 8px 10px 0;
     font-size: 18px;
+    color: var(--text-primary, #333);
+    transition: color 0.3s;
 }
 
 .rating {
     display: block;
     padding: 5px 10px;
+    color: var(--text-secondary, #666);
+    transition: color 0.3s;
 }
 
 .buttonLike {
@@ -38,4 +40,9 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.buttonLike:hover {
+    transform: scale(1.2);
 }
