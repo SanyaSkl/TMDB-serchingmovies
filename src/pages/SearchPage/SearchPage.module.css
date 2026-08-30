@@ -82,3 +82,29 @@
     justify-content: center;
     padding: 10px 0;
 }
+
+/* Предупреждение о минимальной длине */
+.warningMessage {
+    text-align: left;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    background-color: #fee2e2;
+    border-radius: 8px;
+    border: 1px solid #fecaca;
+}
+
+/* Стиль для инпута с ошибкой */
+.searchInputError {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+    background-color: #fef2f2 !important;
+}
+
+.searchInputError:focus {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3) !important;
+}

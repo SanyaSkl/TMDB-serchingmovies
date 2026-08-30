@@ -1,9 +1,21 @@
+.mainPage {
+    padding: 10px 0;
+}
+
+.pageTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary, #333);
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
 .moviesRow {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding: 20px 0;
+    padding: 20px 0 30px;
     scroll-behavior: smooth;
 }
 
@@ -18,4 +30,23 @@
 
 .moviesRow::-webkit-scrollbar-track {
     background: transparent;
+}
+
+.loader {
+    text-align: center;
+    padding: 60px 0;
+    font-size: 18px;
+    color: var(--text-secondary, #666);
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+    .pageTitle {
+        font-size: 22px;
+    }
+
+    .moviesRow {
+        gap: 12px;
+        padding: 12px 0 20px;
+    }
 }

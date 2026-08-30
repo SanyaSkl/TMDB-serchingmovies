@@ -7,11 +7,11 @@
     padding: 10px 0;
 }
 
-.paginationControls {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
+/*.paginationControls {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 16px;*/
+/*}*/
 
 .paginationButton {
     padding: 8px 20px;
