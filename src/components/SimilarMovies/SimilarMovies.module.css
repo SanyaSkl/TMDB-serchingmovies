@@ -1,0 +1,25 @@
+.similarSection {
+    padding: 20px 0;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary, #333);
+    margin-bottom: 16px;
+    transition: color 0.3s ease;
+}
+
+.moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+@media (max-width: 768px) {
+    .moviesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+}

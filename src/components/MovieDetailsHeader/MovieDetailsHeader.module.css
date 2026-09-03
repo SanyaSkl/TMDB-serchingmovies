@@ -1,0 +1,150 @@
+.header {
+    position: relative;
+    background-size: cover;
+    background-position: center top;
+    min-height: 500px;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.7) 40%,
+            rgba(0, 0, 0, 0.3) 100%
+    );
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.content {
+    position: relative;
+    display: flex;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.poster {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.info {
+    flex: 1;
+    padding-top: 20px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.year {
+    font-weight: 400;
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 12px;
+}
+
+.tagline {
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 16px;
+}
+
+.meta {
+    display: flex;
+    gap: 12px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 16px;
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.genre {
+    padding: 4px 14px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.overview {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    max-width: 800px;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .poster {
+        width: 200px;
+        height: 300px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .overlay {
+        padding: 20px;
+        background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.85) 0%,
+                rgba(0, 0, 0, 0.7) 100%
+        );
+    }
+
+    .overview {
+        max-width: 100%;
+    }
+}

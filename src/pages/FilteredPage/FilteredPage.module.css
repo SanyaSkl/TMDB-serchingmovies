@@ -1,0 +1,243 @@
+.page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary, #333);
+}
+
+.headerActions {
+    display: flex;
+    gap: 12px;
+}
+
+.toggleFiltersBtn,
+.resetBtn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.toggleFiltersBtn {
+    background: #01b4e4;
+    color: #fff;
+}
+
+.toggleFiltersBtn:hover {
+    background: #0097c2;
+}
+
+.resetBtn {
+    background: #ef4444;
+    color: #fff;
+}
+
+.resetBtn:hover {
+    background: #dc2626;
+}
+
+.filtersPanel {
+    background: var(--background-card, #fff);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
+}
+
+.filterGroup {
+    margin-bottom: 20px;
+}
+
+.filterGroup:last-child {
+    margin-bottom: 0;
+}
+
+.filterLabel {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+    margin-bottom: 8px;
+}
+
+.select {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    background: var(--background-body, #f5f5f5);
+    color: var(--text-primary, #333);
+    font-size: 14px;
+}
+
+.genresGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genreBtn {
+    padding: 6px 16px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 20px;
+    background: var(--background-body, #f5f5f5);
+    color: var(--text-primary, #333);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.genreBtn:hover {
+    background: #e5e7eb;
+}
+
+.genreBtn.active {
+    background: #01b4e4;
+    color: #fff;
+    border-color: #01b4e4;
+}
+
+.ratingRange {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 400px;
+}
+
+.ratingInputs {
+    display: flex;
+    gap: 20px;
+}
+
+.ratingInputs > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ratingInput {
+    width: 60px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+    background: var(--background-body, #f5f5f5);
+    color: var(--text-primary, #333);
+    font-size: 14px;
+}
+
+.ratingSlider {
+    width: 100%;
+    accent-color: #01b4e4;
+}
+
+.yearInputs {
+    display: flex;
+    gap: 20px;
+}
+
+.yearInputs > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yearInput {
+    width: 100px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 4px;
+    background: var(--background-body, #f5f5f5);
+    color: var(--text-primary, #333);
+    font-size: 14px;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.resultsInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+    margin-bottom: 16px;
+}
+
+.loadingIndicator {
+    color: #01b4e4;
+}
+
+.moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-size: 18px;
+    color: var(--text-secondary, #666);
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding: 12px 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .headerActions {
+        justify-content: center;
+    }
+
+    .filtersPanel {
+        padding: 16px;
+    }
+
+    .select {
+        max-width: 100%;
+    }
+
+    .ratingInputs,
+    .yearInputs {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .moviesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+}
