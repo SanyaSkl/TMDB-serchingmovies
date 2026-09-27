@@ -22,7 +22,6 @@ export const SearchPage = () => {
 
     const handleChangeText = (event: ChangeEvent<HTMLInputElement>) => {
         setSearch(event.currentTarget.value);
-        // Скрываем предупреждение, когда пользователь начинает печатать
         if (showMinLengthWarning) {
             setShowMinLengthWarning(false);
         }
@@ -31,7 +30,6 @@ export const SearchPage = () => {
     const handleSearch = useCallback(() => {
         const trimmedQuery = search.trim();
 
-        // Проверка минимальной длины
         if (trimmedQuery.length < 2) {
             setShowMinLengthWarning(true);
             return;
@@ -71,7 +69,6 @@ export const SearchPage = () => {
                 </button>
             </div>
 
-            {/* Уведомление о минимальной длине */}
             {showMinLengthWarning && (
                 <p className={style.warningMessage}>
                     ⚠️ Please enter at least 2 characters

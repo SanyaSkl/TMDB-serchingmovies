@@ -2,10 +2,9 @@
     min-height: 100vh;
     background: var(--background-body, #f5f5f5);
     position: relative;
-    padding-top: 20px; /* ← Отступ сверху для кнопки */
+    padding-top: 20px;
 }
 
-/* Кнопка "Назад" — в правом верхнем углу */
 .backButton {
     position: fixed;           /* ← Фиксированное позиционирование */
     top: 80px;                 /* ← Отступ от верха */
