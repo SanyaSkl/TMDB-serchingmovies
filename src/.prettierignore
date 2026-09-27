@@ -1,0 +1,7 @@
+dist/
+build/
+coverage/
+*.lock
+*.log
+pnpm-lock.yaml
+package-lock.json
