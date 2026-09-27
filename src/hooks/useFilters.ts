@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {useState} from 'react';
 
 type Filters = {
     genres: number[];
@@ -16,7 +16,7 @@ const initialFilters: Filters = {
     sortBy: 'popularity.desc',
     minRating: 0,
     maxRating: 10,
-    minYear: '1900',
+    minYear: '1920',
     maxYear: getCurrentYear(),
 };
 
@@ -33,16 +33,5 @@ export const useFilters = () => {
         setFilters(initialFilters);
     };
 
-    /** Преобразование фильтров в параметры для API */
-    const queryParams = useMemo(() => ({
-        page: 1, // или передавать извне
-        sort_by: filters.sortBy,
-        with_genres: filters.genres.length > 0 ? filters.genres.join(',') : undefined,
-        'vote_average.gte': filters.minRating > 0 ? filters.minRating : undefined,
-        'vote_average.lte': filters.maxRating < 10 ? filters.maxRating : undefined,
-        'release_date.gte': filters.minYear ? `${filters.minYear}-01-01` : undefined,
-        'release_date.lte': filters.maxYear ? `${filters.maxYear}-12-31` : undefined,
-    }), [filters]);
-
-    return {filters, updateFilter, resetFilters, queryParams};
+    return {filters, updateFilter, resetFilters};
 };
