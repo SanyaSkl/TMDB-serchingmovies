@@ -1,143 +1,220 @@
-import {useState} from 'react';
+import {useMemo, useState} from 'react';
 import {useGetDiscoverMoviesQuery} from '../../api/tmdbApi';
 import {useFilters} from '../../hooks/useFilters';
+import {useDebounce} from '../../hooks/useDebounce';
+import {useMediaQuery} from '../../hooks/useMediaQuery';
 import {MovieCard} from '../../components/MovieCard/MovieCard';
 import {Pagination} from '../../components/Pagination/Pagination';
 import {ErrorMessage} from '../../components/ErrorMessage/ErrorMessage';
+import {GenreFilter} from '../../components/GenreFilter/GenreFilter';
+import {Slider, TextField} from '@mui/material';
 import style from './FilteredPage.module.css';
-import {GenreFilter} from "../../components/GenreFilter/GenreFilter.tsx";
 
 export const FilteredPage = () => {
     const [page, setPage] = useState(1);
-    const {filters, updateFilter, resetFilters, queryParams} = useFilters();
     const [showFilters, setShowFilters] = useState(true);
+    const isMobile = useMediaQuery('(max-width: 900px)');
+    const shouldShowFilters = isMobile ? showFilters : true;
 
-    const {data, isLoading, error} = useGetDiscoverMoviesQuery({
-        ...queryParams,
-        page,
-    });
+    const {filters, updateFilter, resetFilters} = useFilters();
+
+    const debouncedMinRating = useDebounce(filters.minRating, 200);
+    const debouncedMaxRating = useDebounce(filters.maxRating, 200);
+
+    const handleSortChange = (value: string) => {
+        updateFilter('sortBy', value);
+        setPage(1);
+    };
+
+    const handleRatingChange = (_: Event, value: number | number[]) => {
+        const [min, max] = value as number[];
+        updateFilter('minRating', min);
+        updateFilter('maxRating', max);
+        setPage(1);
+    };
+
+    const handleYearChange = (key: 'minYear' | 'maxYear', value: string) => {
+        updateFilter(key, value);
+        setPage(1);
+    };
+
+    const handleGenreToggle = (genreId: number) => {
+        const newGenres = filters.genres.includes(genreId)
+            ? filters.genres.filter((id) => id !== genreId)
+            : [...filters.genres, genreId];
+        updateFilter('genres', newGenres);
+        setPage(1);
+    };
+
+    const handleReset = () => {
+        resetFilters();
+        setPage(1);
+    };
 
     const handlePageChange = (newPage: number) => {
         setPage(newPage);
         window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
-    const handleGenreToggle = (genreId: number) => {
-        const currentGenres = filters.genres;
-        const newGenres = currentGenres.includes(genreId)
-            ? currentGenres.filter((id) => id !== genreId)
-            : [...currentGenres, genreId];
-        updateFilter('genres', newGenres);
-    };
+    const queryParams = useMemo(
+        () => ({
+            sort_by: filters.sortBy,
+            with_genres: filters.genres.length > 0 ? filters.genres.join(',') : undefined,
+            'vote_average.gte': debouncedMinRating > 0 ? debouncedMinRating : undefined,
+            'vote_average.lte': debouncedMaxRating < 10 ? debouncedMaxRating : undefined,
+            'release_date.gte': filters.minYear ? `${filters.minYear}-01-01` : undefined,
+            'release_date.lte': filters.maxYear ? `${filters.maxYear}-12-31` : undefined,
+        }),
+        [
+            filters.sortBy,
+            filters.genres,
+            filters.minYear,
+            filters.maxYear,
+            debouncedMinRating,
+            debouncedMaxRating,
+        ]
+    );
 
-    if (isLoading) return <div className={style.loader}>Loading...</div>;
-    if (error) return <ErrorMessage error={error} title="Filter error:"/>;
+    const {data, isLoading, isFetching, error} = useGetDiscoverMoviesQuery({
+        ...queryParams,
+        page,
+    });
+
+    const showFullLoader = isLoading && !data;
+    const showUpdating = isFetching && !isLoading;
 
     return (
         <div className={style.page}>
             <h1 className={style.title}>Filtered Movies</h1>
 
-            {/* Кнопка показать/скрыть фильтры */}
-            <button className={style.toggleFilters} onClick={() => setShowFilters(!showFilters)}>
-                {showFilters ? 'Hide Filters' : 'Show Filters'}
-            </button>
-
-            {showFilters && (
-                <div className={style.filters}>
-                    {/* Сортировка */}
-                    <div className={style.filterGroup}>
-                        <label>Sort By</label>
-                        <select
-                            value={filters.sortBy}
-                            onChange={(e) => updateFilter('sortBy', e.target.value)}
-                            className={style.select}
-                        >
-                            <option value="popularity.desc">Popularity (Desc)</option>
-                            <option value="vote_average.desc">Rating (Desc)</option>
-                            <option value="release_date.desc">Release Date (Desc)</option>
-                            <option value="revenue.desc">Revenue (Desc)</option>
-                        </select>
-                    </div>
-
-                    {/* Рейтинг */}
-                    <div className={style.filterGroup}>
-                        <label>Rating: {filters.minRating} - {filters.maxRating}</label>
-                        <div className={style.ratingSlider}>
-                            <input
-                                type="range"
-                                min="0"
-                                max="10"
-                                step="0.5"
-                                value={filters.minRating}
-                                onChange={(e) => updateFilter('minRating', Number(e.target.value))}
-                            />
-                            <input
-                                type="range"
-                                min="0"
-                                max="10"
-                                step="0.5"
-                                value={filters.maxRating}
-                                onChange={(e) => updateFilter('maxRating', Number(e.target.value))}
-                            />
-                        </div>
-                    </div>
-
-                    {/* Годы */}
-                    <div className={style.filterGroup}>
-                        <label>Year Range</label>
-                        <div className={style.yearRange}>
-                            <input
-                                type="number"
-                                min="1900"
-                                max={filters.maxYear}
-                                value={filters.minYear}
-                                onChange={(e) => updateFilter('minYear', e.target.value)}
-                                className={style.yearInput}
-                            />
-                            <span>—</span>
-                            <input
-                                type="number"
-                                min={filters.minYear}
-                                max={new Date().getFullYear()}
-                                value={filters.maxYear}
-                                onChange={(e) => updateFilter('maxYear', e.target.value)}
-                                className={style.yearInput}
-                            />
-                        </div>
-                    </div>
-
-                    {/* Жанры */}
-                    <div className={style.filterGroup}>
-                        <label>Genres</label>
-                        <div className={style.genresList}>
-                            {/* Здесь будет компонент с жанрами */}
-                            <GenreFilter
-                                selectedGenres={filters.genres}
-                                onToggle={handleGenreToggle}
-                            />
-                        </div>
-                    </div>
-
-                    <button className={style.resetButton} onClick={resetFilters}>
-                        Reset Filters
-                    </button>
-                </div>
+            {isMobile && (
+                <button
+                    className={style.toggleFilters}
+                    onClick={() => setShowFilters(!showFilters)}
+                >
+                    {showFilters ? 'Hide Filters' : 'Show Filters'}
+                </button>
             )}
 
-            <div className={style.moviesGrid}>
-                {data?.results?.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie}/>
-                ))}
+            <div className={style.layout}>
+                {shouldShowFilters && (
+                    <aside className={style.sidebar}>
+                        <div className={style.filters}>
+                            <h2 className={style.filtersTitle}>Filters</h2>
+
+                            {/* Sort */}
+                            <div className={style.filterGroup}>
+                                <label>Sort By</label>
+                                <select
+                                    value={filters.sortBy}
+                                    onChange={(e) => handleSortChange(e.target.value)}
+                                    className={style.select}
+                                >
+                                    <option value="popularity.desc">Popularity (Desc)</option>
+                                    <option value="vote_average.desc">Rating (Desc)</option>
+                                    <option value="release_date.desc">Release Date (Desc)</option>
+                                    <option value="revenue.desc">Revenue (Desc)</option>
+                                </select>
+                            </div>
+
+                            {/* Rating (MUI Slider) */}
+                            <div className={style.filterGroup}>
+                                <label>
+                                    Rating: {filters.minRating} — {filters.maxRating}
+                                </label>
+                                <Slider
+                                    className={style.ratingSlider}
+                                    value={[filters.minRating, filters.maxRating]}
+                                    onChange={handleRatingChange}
+                                    min={0}
+                                    max={10}
+                                    step={0.5}
+                                    valueLabelDisplay="auto"
+                                    disableSwap
+                                />
+                            </div>
+
+                            {/* Year */}
+                            <div className={style.filterGroup}>
+                                <label>Year Range</label>
+                                <div className={style.yearRange}>
+                                    <TextField
+                                        type="number"
+                                        size="small"
+                                        value={filters.minYear}
+                                        onChange={(e) => handleYearChange('minYear', e.target.value)}
+                                        slotProps={{ htmlInput: { min: 1920, max: filters.maxYear } }}
+                                    />
+                                    <span>—</span>
+                                    <TextField
+                                        type="number"
+                                        size="small"
+                                        value={filters.maxYear}
+                                        onChange={(e) => handleYearChange('maxYear', e.target.value)}
+                                        slotProps={{ htmlInput: { min: filters.minYear, max: new Date().getFullYear() } }}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Genres */}
+                            <div className={style.filterGroup}>
+                                <label>Genres</label>
+                                <GenreFilter
+                                    selectedGenres={filters.genres}
+                                    onToggle={handleGenreToggle}
+                                />
+                            </div>
+
+                            <button className={style.resetButton} onClick={handleReset}>
+                                Reset Filters
+                            </button>
+                        </div>
+                    </aside>
+                )}
+
+                <main className={style.results}>
+                    {showFullLoader && <div className={style.loader}>Loading...</div>}
+
+                    {error && <ErrorMessage error={error} title="Filter error:"/>}
+
+                    {data && data.results.length === 0 && (
+                        <div className={style.emptyState}>
+                            <div className={style.emptyIcon}>🎬</div>
+                            <h3>No movies match your filters</h3>
+                            <p>Try changing your filters or reset them</p>
+                            <button className={style.resetButton} onClick={handleReset}>
+                                Reset Filters
+                            </button>
+                        </div>
+                    )}
+
+                    {data && data.results.length > 0 && (
+                        <>
+                            {showUpdating && <div className={style.updatingBar}/>}
+
+                            <div
+                                className={`${style.resultsInfo} ${showUpdating ? style.dimmed : ''}`}
+                                aria-live="polite"
+                            >
+                                Найдено фильмов: <strong>{data.total_results}</strong>
+                            </div>
+
+                            <div className={style.moviesGrid}>
+                                {data.results.map((movie) => (
+                                    <MovieCard key={movie.id} movie={movie}/>
+                                ))}
+                            </div>
+
+                            <Pagination
+                                currentPage={page}
+                                totalPages={data.total_pages}
+                                totalResults={data.total_results}
+                                onPageChange={handlePageChange}
+                            />
+                        </>
+                    )}
+                </main>
             </div>
-
-            {data && (
-                <Pagination
-                    currentPage={page}
-                    totalPages={data.total_pages}
-                    totalResults={data.total_results}
-                    onPageChange={handlePageChange}
-                />
-            )}
         </div>
     );
 };

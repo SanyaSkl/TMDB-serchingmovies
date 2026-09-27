@@ -1,243 +1,321 @@
 .page {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px 40px;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
+    padding: 20px 40px 40px;
 }
 
 .title {
     font-size: 28px;
     font-weight: 700;
     color: var(--text-primary, #333);
-}
-
-.headerActions {
-    display: flex;
-    gap: 12px;
-}
-
-.toggleFiltersBtn,
-.resetBtn {
-    padding: 8px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.toggleFiltersBtn {
-    background: #01b4e4;
-    color: #fff;
-}
-
-.toggleFiltersBtn:hover {
-    background: #0097c2;
-}
-
-.resetBtn {
-    background: #ef4444;
-    color: #fff;
-}
-
-.resetBtn:hover {
-    background: #dc2626;
-}
-
-.filtersPanel {
-    background: var(--background-card, #fff);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.1));
-}
-
-.filterGroup {
     margin-bottom: 20px;
 }
 
-.filterGroup:last-child {
-    margin-bottom: 0;
+.toggleFilters {
+    display: none;
+    padding: 10px 20px;
+    background: #01b4e4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 16px;
 }
 
-.filterLabel {
-    display: block;
-    font-weight: 600;
+.layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Левая колонка: сайдбар с фильтрами */
+.sidebar {
+    flex: 0 0 280px;
+    width: 280px;
+    position: sticky;
+    top: 90px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+.filters {
+    background: var(--background-card, #fff);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.08));
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.filtersTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-primary, #333);
+}
+
+/* Группа фильтров */
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filterGroup label {
     font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #333);
+}
+
+/* Select */
+.select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 8px;
+    background: var(--background-secondary, #f9f9f9);
+    color: var(--text-primary, #333);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.select:hover,
+.select:focus {
+    border-color: #01b4e4;
+    outline: none;
+}
+
+.ratingSlider {
+    color: #01b4e4;
+    padding: 8px 0;
+}
+
+/* Thumb (ползунки) — круглые, с белой рамкой */
+.ratingSlider :global(.MuiSlider-thumb) {
+    background-color: #01b4e4;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    width: 18px;
+    height: 18px;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.ratingSlider :global(.MuiSlider-thumb:hover) {
+    box-shadow: 0 3px 10px rgba(1, 180, 228, 0.5);
+    transform: scale(1.1);
+}
+
+/* Активный thumb (при перетаскивании) */
+.ratingSlider :global(.MuiSlider-thumb.Mui-active) {
+    box-shadow: 0 3px 12px rgba(1, 180, 228, 0.6);
+    transform: scale(1.15);
+}
+
+/* Track (закрашенная полоса между ползунками) */
+.ratingSlider :global(.MuiSlider-track) {
+    background-color: #01b4e4;
+    border: none;
+    height: 4px;
+}
+
+/* Rail (серый фон всего трека) */
+.ratingSlider :global(.MuiSlider-rail) {
+    background-color: var(--border-color, #e5e7eb);
+    opacity: 1;
+    height: 4px;
+}
+
+/* Тултип со значением при перетаскивании */
+.ratingSlider :global(.MuiSlider-valueLabel) {
+    background-color: #01b4e4;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Годы */
+.yearRange {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yearRange span {
     color: var(--text-secondary, #666);
+    font-weight: 600;
+}
+
+.yearRange :global(.MuiTextField-root) {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Индикатор фонового обновления (тонкая полоска сверху) */
+.updatingBar {
+    height: 3px;
+    background: linear-gradient(90deg, #01b4e4 0%, #0097c2 50%, #01b4e4 100%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: 3px;
+    margin-bottom: 16px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Затемнение сетки при обновлении */
+.dimmed {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+/* Заглушка "ничего не найдено" */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--text-secondary, #666);
+}
+
+.emptyIcon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.emptyState h3 {
+    font-size: 22px;
+    color: var(--text-primary, #333);
     margin-bottom: 8px;
 }
 
-.select {
-    width: 100%;
-    max-width: 300px;
-    padding: 8px 12px;
-    border: 1px solid var(--border-color, #ddd);
-    border-radius: 8px;
-    background: var(--background-body, #f5f5f5);
-    color: var(--text-primary, #333);
-    font-size: 14px;
+.emptyState p {
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
-.genresGrid {
+/* Жанры */
+.genresList {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
-.genreBtn {
-    padding: 6px 16px;
-    border: 1px solid var(--border-color, #ddd);
-    border-radius: 20px;
-    background: var(--background-body, #f5f5f5);
-    color: var(--text-primary, #333);
-    cursor: pointer;
-    font-size: 13px;
-    transition: all 0.3s ease;
-}
-
-.genreBtn:hover {
-    background: #e5e7eb;
-}
-
-.genreBtn.active {
-    background: #01b4e4;
-    color: #fff;
-    border-color: #01b4e4;
-}
-
-.ratingRange {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-width: 400px;
-}
-
-.ratingInputs {
-    display: flex;
-    gap: 20px;
-}
-
-.ratingInputs > div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.ratingInput {
-    width: 60px;
-    padding: 4px 8px;
-    border: 1px solid var(--border-color, #ddd);
-    border-radius: 4px;
-    background: var(--background-body, #f5f5f5);
-    color: var(--text-primary, #333);
-    font-size: 14px;
-}
-
-.ratingSlider {
+/* Кнопка сброса */
+.resetButton {
     width: 100%;
-    accent-color: #01b4e4;
-}
-
-.yearInputs {
-    display: flex;
-    gap: 20px;
-}
-
-.yearInputs > div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.yearInput {
-    width: 100px;
-    padding: 4px 8px;
-    border: 1px solid var(--border-color, #ddd);
-    border-radius: 4px;
-    background: var(--background-body, #f5f5f5);
-    color: var(--text-primary, #333);
+    padding: 10px;
+    background: #dc2626;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
     font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
 }
 
+.resetButton:hover {
+    background: #b91c1c;
+}
+
+/* ← Правая колонка: результаты */
 .results {
-    margin-top: 20px;
+    flex: 1;
+    min-width: 0;
 }
 
 .resultsInfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-size: 14px;
     color: var(--text-secondary, #666);
     margin-bottom: 16px;
 }
 
-.loadingIndicator {
-    color: #01b4e4;
-}
-
+/* Сетка фильмов */
 .moviesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
-    justify-items: center;
+    margin-bottom: 30px;
 }
 
+/* Загрузка */
 .loader {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    min-height: 300px;
     font-size: 18px;
     color: var(--text-secondary, #666);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .sidebar {
+        flex: 0 0 240px;
+        width: 240px;
+    }
+
+    .layout {
+        gap: 20px;
+    }
+}
+
+/* Мобильные: одна колонка, фильтры сверху */
+@media (max-width: 900px) {
     .page {
-        padding: 12px 16px;
+        padding: 16px 20px 40px;
     }
 
-    .header {
+    .layout {
         flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        gap: 20px;
     }
 
-    .title {
-        font-size: 22px;
-        text-align: center;
+    .sidebar {
+        flex: none;
+        width: 100%;
+        position: static;
+        max-height: none;
+        overflow-y: visible;
     }
 
-    .headerActions {
-        justify-content: center;
-    }
-
-    .filtersPanel {
-        padding: 16px;
-    }
-
-    .select {
-        max-width: 100%;
-    }
-
-    .ratingInputs,
-    .yearInputs {
-        flex-direction: column;
-        gap: 12px;
+    .toggleFilters {
+        display: block;
     }
 
     .moviesGrid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 16px;
     }
 }
