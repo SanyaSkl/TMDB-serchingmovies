@@ -1,4 +1,3 @@
-/* Контейнер всей страницы */
 .searchPage {
     max-width: 1200px;
     margin: 0 auto;
@@ -57,7 +56,7 @@
     transform: scale(0.96);
 }
 
-/* Сообщение под поиском (подсказка) */
+/* Сообщение под поиском */
 .searchHint {
     text-align: left;
     color: #6b7280;
@@ -66,7 +65,7 @@
     margin-bottom: 24px;
 }
 
-/* Сообщения о состоянии (загрузка, ошибка, пусто) */
+/* Сообщения о состоянии */
 .message {
     text-align: center;
     font-size: 18px;
@@ -97,7 +96,7 @@
     border: 1px solid #fecaca;
 }
 
-/* Стиль для инпута с ошибкой */
+/* инпут с ошибкой */
 .searchInputError {
     border-color: #dc2626 !important;
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;

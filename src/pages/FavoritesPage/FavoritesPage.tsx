@@ -20,7 +20,7 @@ export const FavoritesPage = () => {
     return (
         <div className={style.favoritePage}>
             <h2 className={style.pageTitle}>My Favorites ({favorites.length})</h2>
-            <div className={style.moviesGrid}>
+            <div className={style.moviesPage}>
                 {favorites.map((movie) => (
                     <MovieCard key={movie.id} movie={movie}/>
                 ))}

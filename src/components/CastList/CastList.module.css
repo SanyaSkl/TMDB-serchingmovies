@@ -1,9 +1,8 @@
-/* Блок с актерами */
+
 .castSection {
     margin: 32px 0 16px;
 }
 
-/* Заголовок "Актеры" */
 .castSection h2 {
     font-size: 22px;
     font-weight: 700;
@@ -11,14 +10,12 @@
     color: var(--text-primary, #333);
 }
 
-/* Сетка актеров — 6 колонок */
 .castList {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 24px;
 }
 
-/* Каждый актер — вертикальная карточка */
 .castItem {
     display: flex;
     flex-direction: column;
@@ -43,7 +40,6 @@
     border-color: #01b4e4;
 }
 
-/* Имя актера */
 .castItem .name {
     font-size: 15px;
     font-weight: 600;

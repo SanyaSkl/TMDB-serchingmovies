@@ -111,7 +111,7 @@
     padding: 8px 0;
 }
 
-/* Thumb (ползунки) — круглые, с белой рамкой */
+/* Thumb (ползунки) */
 .ratingSlider :global(.MuiSlider-thumb) {
     background-color: #01b4e4;
     border: 3px solid #ffffff;
@@ -126,20 +126,20 @@
     transform: scale(1.1);
 }
 
-/* Активный thumb (при перетаскивании) */
+/* Активный thumb */
 .ratingSlider :global(.MuiSlider-thumb.Mui-active) {
     box-shadow: 0 3px 12px rgba(1, 180, 228, 0.6);
     transform: scale(1.15);
 }
 
-/* Track (закрашенная полоса между ползунками) */
+/* Track (полоса между ползунками) */
 .ratingSlider :global(.MuiSlider-track) {
     background-color: #01b4e4;
     border: none;
     height: 4px;
 }
 
-/* Rail (серый фон всего трека) */
+/* Rail */
 .ratingSlider :global(.MuiSlider-rail) {
     background-color: var(--border-color, #e5e7eb);
     opacity: 1;
@@ -171,7 +171,7 @@
     min-width: 0;
 }
 
-/* Индикатор фонового обновления (тонкая полоска сверху) */
+/* Loader */
 .updatingBar {
     height: 3px;
     background: linear-gradient(90deg, #01b4e4 0%, #0097c2 50%, #01b4e4 100%);
@@ -250,7 +250,7 @@
     background: #b91c1c;
 }
 
-/* ← Правая колонка: результаты */
+/* Правая колонка: результаты */
 .results {
     flex: 1;
     min-width: 0;

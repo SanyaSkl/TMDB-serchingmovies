@@ -6,10 +6,10 @@
 }
 
 .backButton {
-    position: fixed;           /* ← Фиксированное позиционирование */
-    top: 80px;                 /* ← Отступ от верха */
-    right: 40px;               /* ← Отступ от правого края */
-    z-index: 100;              /* ← Поверх всех элементов */
+    position: fixed;
+    top: 80px;
+    right: 40px;
+    z-index: 100;
 
     display: flex;
     align-items: center;

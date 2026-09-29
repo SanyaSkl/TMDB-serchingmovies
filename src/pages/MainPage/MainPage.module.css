@@ -39,7 +39,6 @@
     color: var(--text-secondary, #666);
 }
 
-/* Адаптивность для маленьких экранов */
 @media (max-width: 768px) {
     .pageTitle {
         font-size: 22px;

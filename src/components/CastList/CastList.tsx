@@ -6,10 +6,9 @@ type Props = {
 };
 
 export const CastList = ({cast}: Props) => {
-    // Показываем первых 6 актеров
+
     const displayedCast = cast.slice(0, 6);
 
-    // Если актеров нет, ничего не рендерим
     if (!displayedCast.length) {
         return null;
     }
