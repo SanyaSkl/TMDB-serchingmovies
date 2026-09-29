@@ -1,37 +1,37 @@
 .buttonBlock {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-    padding: 10px 0;
-    border-bottom: 2px solid #e5e7eb;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 10px 0;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .buttonBlock a {
-    padding: 8px 20px;
-    font-size: 15px;
-    font-weight: 500;
-    color: #4b5563;
-    text-decoration: none;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    background-color: #f3f4f6;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  background-color: #f3f4f6;
 }
 
 .buttonBlock a:hover {
-    background-color: #e5e7eb;
-    color: #1f2937;
+  background-color: #e5e7eb;
+  color: #1f2937;
 }
 
 .buttonBlock a.active {
-    background-color: #01b4e4;
-    color: #ffffff;
+  background-color: #01b4e4;
+  color: #ffffff;
 }
 
 .categoryPage {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 0;
 }

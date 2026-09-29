@@ -1,51 +1,51 @@
 .mainPage {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .pageTitle {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-primary, #333);
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #333);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
 
 .moviesRow {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 20px 0 30px;
-    scroll-behavior: smooth;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0 30px;
+  scroll-behavior: smooth;
 }
 
 .moviesRow::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .moviesRow::-webkit-scrollbar-thumb {
-    background: #cfcfcf;
-    border-radius: 20px;
+  background: #cfcfcf;
+  border-radius: 20px;
 }
 
 .moviesRow::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .loader {
-    text-align: center;
-    padding: 60px 0;
-    font-size: 18px;
-    color: var(--text-secondary, #666);
+  text-align: center;
+  padding: 60px 0;
+  font-size: 18px;
+  color: var(--text-secondary, #666);
 }
 
 @media (max-width: 768px) {
-    .pageTitle {
-        font-size: 22px;
-    }
+  .pageTitle {
+    font-size: 22px;
+  }
 
-    .moviesRow {
-        gap: 12px;
-        padding: 12px 0 20px;
-    }
+  .moviesRow {
+    gap: 12px;
+    padding: 12px 0 20px;
+  }
 }

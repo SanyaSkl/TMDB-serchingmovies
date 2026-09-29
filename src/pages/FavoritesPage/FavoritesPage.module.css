@@ -1,52 +1,52 @@
 .favoritePage {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px 40px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px 40px;
 }
 
 .pageTitle {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-primary, #333);
-    margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary, #333);
+  margin-bottom: 20px;
 }
 
 /* Сетка карточек */
 .moviesPage {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
 /* Пустое состояние */
 .emptyState {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 20px;
-    text-align: center;
-    color: var(--text-secondary, #666);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-secondary, #666);
 }
 
 .emptyState h2 {
-    font-size: 22px;
-    color: var(--text-primary, #333);
-    margin-bottom: 8px;
+  font-size: 22px;
+  color: var(--text-primary, #333);
+  margin-bottom: 8px;
 }
 
 .emptyState p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 @media (max-width: 900px) {
-    .favoritePage {
-        padding: 16px 20px 40px;
-    }
+  .favoritePage {
+    padding: 16px 20px 40px;
+  }
 
-    .moviesPage {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 16px;
-    }
+  .moviesPage {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
 }

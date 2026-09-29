@@ -1,109 +1,113 @@
 .searchPage {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Блок с поиском (инпут + кнопка) */
 .searchContainer {
-    display: flex;
-    justify-content: left;
-    gap: 12px;
-    margin-bottom: 16px;
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 /* Поле ввода */
 .searchInput {
-    width: 400px;
-    padding: 12px 18px;
-    font-size: 16px;
-    border: 2px solid #d1d5db;
-    border-radius: 30px;
-    outline: none;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: #f9fafb;
+  width: 400px;
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 30px;
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  background-color: #f9fafb;
 }
 
 .searchInput:focus {
-    border-color: #01b4e4;
-    box-shadow: 0 0 0 3px rgba(1, 180, 228, 0.2);
-    background-color: #ffffff;
+  border-color: #01b4e4;
+  box-shadow: 0 0 0 3px rgba(1, 180, 228, 0.2);
+  background-color: #ffffff;
 }
 
 .searchInput::placeholder {
-    color: #9ca3af;
-    font-size: 15px;
+  color: #9ca3af;
+  font-size: 15px;
 }
 
 /* Кнопка поиска */
 .searchButton {
-    padding: 12px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #01b4e4;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.15s ease;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #01b4e4;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.15s ease;
 }
 
 .searchButton:hover {
-    background-color: #0097c2;
+  background-color: #0097c2;
 }
 
 .searchButton:active {
-    transform: scale(0.96);
+  transform: scale(0.96);
 }
 
 /* Сообщение под поиском */
 .searchHint {
-    text-align: left;
-    color: #6b7280;
-    font-size: 16px;
-    margin-top: 4px;
-    margin-bottom: 24px;
+  text-align: left;
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: 4px;
+  margin-bottom: 24px;
 }
 
 /* Сообщения о состоянии */
 .message {
-    text-align: center;
-    font-size: 18px;
-    color: #4b5563;
-    padding: 40px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #4b5563;
+  padding: 40px 0;
 }
 
 /* Сетка с карточками фильмов */
 .moviesGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 /* Предупреждение о минимальной длине */
 .warningMessage {
-    text-align: left;
-    color: #dc2626;
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 4px;
-    margin-bottom: 16px;
-    padding: 8px 16px;
-    background-color: #fee2e2;
-    border-radius: 8px;
-    border: 1px solid #fecaca;
+  text-align: left;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  background-color: #fee2e2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
 }
 
 /* инпут с ошибкой */
 .searchInputError {
-    border-color: #dc2626 !important;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
-    background-color: #fef2f2 !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+  background-color: #fef2f2 !important;
 }
 
 .searchInputError:focus {
-    border-color: #dc2626 !important;
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3) !important;
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3) !important;
 }

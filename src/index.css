@@ -9,7 +9,7 @@
   --border-color: #e5e7eb;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   /* Тёмная тема */
   --background-body: #121212;
   --text-body: #ffffff;
@@ -30,10 +30,12 @@
 
 /* ===== Тело страницы ===== */
 body {
-  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
   background-color: var(--background-body);
   color: var(--text-body);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* ===== Изображения ===== */
