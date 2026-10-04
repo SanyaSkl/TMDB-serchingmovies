@@ -3,12 +3,13 @@ import { useGetDiscoverMoviesQuery } from '../../api/tmdbApi'
 import { useFilters } from '../../hooks/useFilters'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
-import { MovieCard } from '../../components/MovieCard/MovieCard'
-import { Pagination } from '../../components/Pagination/Pagination'
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage'
-import { GenreFilter } from '../../components/GenreFilter/GenreFilter'
+import { MovieCard } from '../../components/movie/MovieCard/MovieCard'
+import { Pagination } from '../../components/ui/Pagination/Pagination'
+import { ErrorMessage } from '../../components/ui/ErrorMessage/ErrorMessage'
+import { GenreFilter } from '../../components/movie/GenreFilter/GenreFilter'
 import { Slider, TextField } from '@mui/material'
 import style from './FilteredPage.module.css'
+import {MovieGridSkeleton} from "../../components/skeletons";
 
 export const FilteredPage = () => {
   const [page, setPage] = useState(1)
@@ -169,7 +170,7 @@ export const FilteredPage = () => {
         )}
 
         <main className={style.results}>
-          {showFullLoader && <div className={style.loader}>Loading...</div>}
+          {showFullLoader && <MovieGridSkeleton count={12} />}
 
           {error && <ErrorMessage error={error} title="Filter error:" />}
 
@@ -186,8 +187,6 @@ export const FilteredPage = () => {
 
           {data && data.results.length > 0 && (
             <>
-              {showUpdating && <div className={style.updatingBar} />}
-
               <div
                 className={`${style.resultsInfo} ${showUpdating ? style.dimmed : ''}`}
                 aria-live="polite"

@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../hooks/useAppSelector.ts'
-import { MovieCard } from '../../components/MovieCard/MovieCard.tsx'
+import { MovieCard } from '../../components/movie/MovieCard/MovieCard.tsx'
 import style from './FavoritesPage.module.css'
 import { selectFavorites } from '../../store/favoritesSlice.ts'
 

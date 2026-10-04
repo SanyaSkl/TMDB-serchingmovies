@@ -1,11 +1,13 @@
 import {useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
 import {useGetSearchMoviesQuery} from '../../api/tmdbApi';
-import {MovieCard} from '../../components/MovieCard/MovieCard';
-import {ErrorMessage} from '../../components/ErrorMessage/ErrorMessage';
-import {Pagination} from '../../components/Pagination/Pagination';
+import {MovieCard} from '../../components/movie/MovieCard/MovieCard';
+import {ErrorMessage} from '../../components/ui/ErrorMessage/ErrorMessage';
+import {Pagination} from '../../components/ui/Pagination/Pagination';
 import style from './SearchPage.module.css';
-import {SearchBar} from "../../components/SearchBar/SearchBar.tsx";
+import {SearchBar} from "../../components/ui/SearchBar/SearchBar.tsx";
+import {MovieGridSkeleton} from "../../components/skeletons";
+
 
 export const SearchPage = () => {
     const [searchParams] = useSearchParams();
@@ -50,7 +52,7 @@ export const SearchPage = () => {
                 <p className={style.searchHint}>Enter the movie title to search</p>
             )}
             {submittedQuery !== '' && isLoading && (
-                <div className={style.message}>Loading...</div>
+                <MovieGridSkeleton count={12} />
             )}
             {submittedQuery !== '' && error && (
                 <ErrorMessage error={error} title="Search error:"/>

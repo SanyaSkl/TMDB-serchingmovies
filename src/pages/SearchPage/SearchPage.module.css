@@ -69,14 +69,6 @@
   margin-bottom: 24px;
 }
 
-/* Сообщения о состоянии */
-.message {
-  text-align: center;
-  font-size: 18px;
-  color: #4b5563;
-  padding: 40px 0;
-}
-
 /* Сетка с карточками фильмов */
 .moviesGrid {
   display: flex;
