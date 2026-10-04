@@ -1,5 +1,6 @@
 /** Описок фильмов: главная страница, страница поиска, категории, избранное. */
 export type Movie = {
+  backdrop_path: unknown
   id: number
   title: string
   /** Путь к постеру */
