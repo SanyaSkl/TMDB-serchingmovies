@@ -1,0 +1,58 @@
+.searchContainer {
+    display: flex;
+    justify-content: left;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Поле ввода — ТОЧНО как было в SearchPage */
+.searchInput {
+    width: 400px;
+    padding: 12px 18px;
+    font-size: 16px;
+    border: 1px solid #484870;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #213355;
+    color: #ffffff;
+}
+
+.searchInput:focus {
+    border-color: #01b4e4;
+    box-shadow: 0 0 0 3px rgba(1, 180, 228, 0.2);
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.searchInput::placeholder {
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+/* Кнопка — ТОЧНО как было в SearchPage */
+.searchButton {
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #016be4;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    white-space: nowrap;
+}
+
+.searchButton:hover:not(:disabled) {
+    background-color: #0097c2;
+}
+
+.searchButton:active:not(:disabled) {
+    transform: scale(0.96);
+}
+
+.searchButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
