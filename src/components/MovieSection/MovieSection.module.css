@@ -1,0 +1,52 @@
+.section {
+    margin-bottom: 48px;
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.sectionTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary, #333);
+}
+
+.viewAll {
+    font-size: 14px;
+    font-weight: 600;
+    color: #01b4e4;
+    text-decoration: none;
+}
+
+.viewAll:hover {
+    color: #0097c2;
+}
+
+.sectionGrid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 1200px) {
+    .sectionGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .sectionGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sectionGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
