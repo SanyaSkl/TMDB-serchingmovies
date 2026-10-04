@@ -1,10 +1,10 @@
-import { useAppDispatch } from '../../hooks/useAppDispatch.ts'
-import { useAppSelector } from '../../hooks/useAppSelector.ts'
-import { addFavorite, removeFavorite, selectIsFavorite } from '../../store/favoritesSlice.ts'
+import { useAppDispatch } from '../../../hooks/useAppDispatch.ts'
+import { useAppSelector } from '../../../hooks/useAppSelector.ts'
+import { addFavorite, removeFavorite, selectIsFavorite } from '../../../store/favoritesSlice.ts'
 import style from './MovieCard.module.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import type { Movie } from '../../types/movie.types.ts'
+import type { Movie } from '../../../types/movie.types.ts'
 
 type Props = {
   movie: Movie

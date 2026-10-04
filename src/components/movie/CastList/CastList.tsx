@@ -1,5 +1,5 @@
 import style from './CastList.module.css'
-import type { Actor } from '../../types/movie.types.ts'
+import type { Actor } from '../../../types/movie.types.ts'
 
 type Props = {
   cast: Actor[]

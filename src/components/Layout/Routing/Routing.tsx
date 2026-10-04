@@ -1,13 +1,13 @@
-import {MovieDetailsPage} from '../../pages/MovieDetailsPage/MovieDetailsPage.tsx'
+import {MovieDetailsPage} from '../../../pages/MovieDetailsPage/MovieDetailsPage.tsx'
 import {Navigate, Route, Routes} from 'react-router-dom'
-import {MainPage} from '../../pages/MainPage/MainPage.tsx'
-import {FavoritesPage} from '../../pages/FavoritesPage/FavoritesPage.tsx'
+import {MainPage} from '../../../pages/MainPage/MainPage.tsx'
+import {FavoritesPage} from '../../../pages/FavoritesPage/FavoritesPage.tsx'
 import {Layout} from '../Layout/Layout.tsx'
-import {NotFoundPage} from '../../pages/NotFoundPage/NotFoundPage.tsx'
-import {FilteredPage} from '../../pages/FilteredPage/FilteredPage.tsx'
-import {SearchPage} from '../../pages/SearchPage/SearchPage.tsx'
-import {CategoryPage} from '../../pages/CategoryPage/CategoryPage.tsx'
-import {Path} from '../../constants'
+import {NotFoundPage} from '../../../pages/NotFoundPage/NotFoundPage.tsx'
+import {FilteredPage} from '../../../pages/FilteredPage/FilteredPage.tsx'
+import {SearchPage} from '../../../pages/SearchPage/SearchPage.tsx'
+import {CategoryPage} from '../../../pages/CategoryPage/CategoryPage.tsx'
+import {Path} from '../../../constants'
 
 export const Routing = () => {
 

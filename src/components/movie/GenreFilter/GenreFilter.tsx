@@ -1,4 +1,4 @@
-import { useGetGenresQuery } from '../../api/tmdbApi'
+import { useGetGenresQuery } from '../../../api/tmdbApi.ts'
 import style from './GenreFilter.module.css'
 
 type Props = {

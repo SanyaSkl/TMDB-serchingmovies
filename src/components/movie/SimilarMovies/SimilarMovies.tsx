@@ -1,5 +1,5 @@
 import style from './SimilarMovies.module.css'
-import type { Movie } from '../../types/movie.types.ts'
+import type { Movie } from '../../../types/movie.types.ts'
 import { MovieCard } from '../MovieCard/MovieCard.tsx'
 
 type Props = {
