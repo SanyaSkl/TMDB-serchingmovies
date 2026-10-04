@@ -1,37 +1,77 @@
-import { NavLink } from 'react-router-dom'
-import { Path } from '../../constants'
+import {NavLink} from 'react-router-dom'
+import {Path} from '../../constants'
 import style from './Header.module.css'
-import { selectThemeMode, toggleTheme } from '../../store/themeSlice.ts'
-import { useAppSelector } from '../../hooks/useAppSelector.ts'
-import { useAppDispatch } from '../../hooks/useAppDispatch.ts'
+import {selectThemeMode, toggleTheme} from '../../store/themeSlice.ts'
+import {useAppSelector} from '../../hooks/useAppSelector.ts'
+import {useAppDispatch} from '../../hooks/useAppDispatch.ts'
 import logo from './../../assets/logo.svg'
 
 export const Header = () => {
-  const themeMode = useAppSelector(selectThemeMode)
-  const dispatch = useAppDispatch()
+    const themeMode = useAppSelector(selectThemeMode)
+    const dispatch = useAppDispatch()
 
-  const handleToggleTheme = () => {
-    dispatch(toggleTheme())
-  }
+    const handleToggleTheme = () => {
+        dispatch(toggleTheme())
+    }
 
-  return (
-    <header className={style.header}>
-      <div className={style.menu}>
-        <div className={style.logo}>
-          <NavLink to={Path.Main}>
-            <img src={logo} alt="TMDB Logo" />
-          </NavLink>
-        </div>
-        <nav className={style.nav}>
-          <NavLink to="/category/popular">Category</NavLink>
-          <NavLink to={Path.Filtered}>Filtered</NavLink>
-          <NavLink to={Path.Search}>Search</NavLink>
-          <NavLink to={Path.Favorites}>Favorites</NavLink>
-        </nav>
-      </div>
-      <button className={style.themeToggle} onClick={handleToggleTheme} aria-label="Toggle theme">
-        {themeMode === 'light' ? '🌙' : '☀️'}
-      </button>
-    </header>
-  )
+    return (
+        <header className={style.header}>
+            <div className={style.inner}>
+                <NavLink to={Path.Main} className={style.logoLink}>
+                    <img src={logo} alt="TMDB Logo" className={style.logo}/>
+                </NavLink>
+                <nav className={style.nav}>
+                    <NavLink to="/" className={({isActive}) =>
+                        `${style.link} ${isActive ? style.linkActive : ''}`
+                    }
+                    >
+                        Main
+                    </NavLink>
+                    <span className={style.separator}>|</span>
+
+                    <NavLink
+                        to="/category/popular" className={({isActive}) =>
+                        `${style.link} ${isActive ? style.linkActive : ''}`
+                    }
+                    >
+                        Category movies
+                    </NavLink>
+                    <span className={style.separator}>|</span>
+
+                    <NavLink
+                        to={Path.Filtered} className={({isActive}) =>
+                        `${style.link} ${isActive ? style.linkActive : ''}`
+                    }
+                    >
+                        Filtered movies
+                    </NavLink>
+                    <span className={style.separator}>|</span>
+
+                    <NavLink
+                        to={Path.Search} className={({isActive}) =>
+                        `${style.link} ${isActive ? style.linkActive : ''}`
+                    }
+                    >
+                        Search
+                    </NavLink>
+                    <span className={style.separator}>|</span>
+
+                    <NavLink
+                        to={Path.Favorites} className={({isActive}) =>
+                        `${style.link} ${isActive ? style.linkActive : ''}`
+                    }
+                    >
+                        Favorites
+                    </NavLink>
+                </nav>
+                <button
+                    className={style.themeButton}
+                    onClick={handleToggleTheme}
+                    aria-label="Toggle theme"
+                >
+                    {themeMode === 'light' ? '🌙' : '☀️'}
+                </button>
+            </div>
+        </header>
+    )
 }
