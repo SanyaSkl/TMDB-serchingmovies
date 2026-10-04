@@ -1,4 +1,4 @@
-import { Routing } from '../components/Routing/Routing.tsx'
+import { Routing } from '../components/Layout/Routing/Routing.tsx'
 import { ThemeProvider } from '@mui/material'
 import { useAppSelector } from '../hooks/useAppSelector.ts'
 import { getTheme } from '../theme.ts'
