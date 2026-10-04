@@ -1,44 +1,70 @@
-import { useState, useCallback } from 'react'
-import { useGetPopularMovieQuery } from '../../api/tmdbApi.ts'
-import { MovieCard } from '../../components/MovieCard/MovieCard.tsx'
-import { ErrorMessage } from '../../components/ErrorMessage/ErrorMessage.tsx'
-import { Pagination } from '../../components/Pagination/Pagination.tsx'
-import style from './MainPage.module.css'
+import {useMemo, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {useGetCategoryMoviesQuery, useGetPopularMovieQuery,} from '../../api/tmdbApi';
+import {MovieSection} from '../../components/MovieSection/MovieSection';
+import style from './MainPage.module.css';
+import {SearchBar} from "../../components/SearchBar/SearchBar.tsx";
 
 export const MainPage = () => {
-  const [page, setPage] = useState(1)
-  const { data, isLoading, error } = useGetPopularMovieQuery(page)
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
 
-  const handlePageChange = useCallback((newPage: number) => {
-    setPage(newPage)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [])
+    const {data: popular} = useGetPopularMovieQuery(1);
+    const {data: topRated} = useGetCategoryMoviesQuery({category: 'top_rated', page: 1});
+    const {data: upcoming} = useGetCategoryMoviesQuery({category: 'upcoming', page: 1});
+    const {data: nowPlaying} = useGetCategoryMoviesQuery({category: 'now_playing', page: 1});
 
-  if (isLoading) {
-    return <div className={style.loader}>Loading popular movies...</div>
-  }
+    const [heroSeed] = useState(() => Math.random());
 
-  if (error) {
-    return <ErrorMessage error={error} title="Failed to load popular movies:" />
-  }
+    const heroBackdrop = useMemo(() => {
+        if (!popular?.results?.length) return null;
+        const moviesWithBackdrop = popular.results.filter((m) => m.backdrop_path);
+        if (!moviesWithBackdrop.length) return null;
+        const index = Math.floor(heroSeed * moviesWithBackdrop.length);
+        return moviesWithBackdrop[index].backdrop_path;
+    }, [popular, heroSeed]);
 
-  return (
-    <div className={style.mainPage}>
-      <h2 className={style.pageTitle}>Trending Movies</h2>
+    const handleSearch = () => {
+        const trimmed = query.trim();
+        if (trimmed) {
+            navigate(`/search?query=${encodeURIComponent(trimmed)}`);
+        }
+    };
 
-      <div className={style.moviesRow}>
-        {data?.results?.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+    return (
+        <>
+            <section
+                className={style.hero}
+                style={
+                    heroBackdrop
+                        ? {
+                            '--hero-backdrop': `url(https://image.tmdb.org/t/p/original${heroBackdrop})`
+                        }
+                        : undefined
+                }
+            >
+                <div className={style.content}>
+                    <h1 className={style.title}>Welcome</h1>
+                    <h2 className={style.subtitle}>
+                        Browse highlighted titles from TMDB
+                    </h2>
 
-      {/* Пагинация */}
-      <Pagination
-        currentPage={page}
-        totalPages={data?.total_pages || 1}
-        totalResults={data?.total_results}
-        onPageChange={handlePageChange}
-      />
-    </div>
-  )
-}
+                    <SearchBar
+                        value={query}
+                        onChange={setQuery}
+                        onSubmit={handleSearch}
+                        placeholder="Search Movies"
+                        buttonText="Search"
+                    />
+                </div>
+            </section>
+
+            <div className={style.page}>
+                <MovieSection title="Popular Movies" movies={popular?.results} linkTo="/category/popular"/>
+                <MovieSection title="Top Rated Movies" movies={topRated?.results} linkTo="/category/top_rated"/>
+                <MovieSection title="Upcoming Movies" movies={upcoming?.results} linkTo="/category/upcoming"/>
+                <MovieSection title="Now Playing Movies" movies={nowPlaying?.results} linkTo="/category/now_playing"/>
+            </div>
+        </>
+    );
+};

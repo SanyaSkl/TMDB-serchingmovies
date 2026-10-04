@@ -1,51 +1,92 @@
-.mainPage {
-  padding: 10px 0;
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px 40px;
 }
 
-.pageTitle {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary, #333);
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
-}
-
-.moviesRow {
+.hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  height: 700px;
   display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 20px 0 30px;
-  scroll-behavior: smooth;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #04252d;
+  margin-bottom: 64px;
+
+  background-image:
+          linear-gradient(rgba(4, 21, 45, 0.3) 0%, rgba(18, 18, 18, 0.95) 79.17%),
+          var(--hero-backdrop, none);
 }
 
-.moviesRow::-webkit-scrollbar {
-  height: 8px;
+.content {
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.moviesRow::-webkit-scrollbar-thumb {
-  background: #cfcfcf;
-  border-radius: 20px;
+.title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.moviesRow::-webkit-scrollbar-track {
-  background: transparent;
+.subtitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.loader {
-  text-align: center;
-  padding: 60px 0;
-  font-size: 18px;
-  color: var(--text-secondary, #666);
-}
-
-@media (max-width: 768px) {
-  .pageTitle {
-    font-size: 22px;
+@media (max-width: 900px) {
+  .hero {
+    height: 500px;
+    margin-bottom: 48px;
   }
 
-  .moviesRow {
-    gap: 12px;
-    padding: 12px 0 20px;
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 400px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .form {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .input,
+  .button {
+    border-radius: 12px;
+    width: 100%;
   }
 }
