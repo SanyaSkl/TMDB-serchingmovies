@@ -17,13 +17,13 @@
   width: 400px;
   padding: 12px 18px;
   font-size: 16px;
-  border: 2px solid #d1d5db;
+  border: 1px solid #484870;
   border-radius: 30px;
   outline: none;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
-  background-color: #f9fafb;
+  background-color: #213355;
 }
 
 .searchInput:focus {
@@ -43,7 +43,7 @@
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
-  background-color: #01b4e4;
+  background-color: #016be4;
   border: none;
   border-radius: 30px;
   cursor: pointer;
