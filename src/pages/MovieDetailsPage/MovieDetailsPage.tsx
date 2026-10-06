@@ -52,7 +52,7 @@ export const MovieDetailsPage = () => {
     return (
         <div className={style.page}>
             <button className={style.backButton} onClick={handleGoBack} aria-label="Back to movies">
-                Назад
+                Back
             </button>
             <MovieDetailsHeader movie={movie}/>
 

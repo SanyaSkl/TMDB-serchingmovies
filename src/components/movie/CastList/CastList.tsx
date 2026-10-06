@@ -1,5 +1,6 @@
 import style from './CastList.module.css'
-import type { Actor } from '../../../types/movie.types.ts'
+import type {Actor} from "../../../validations";
+
 
 type Props = {
   cast: Actor[]
@@ -14,7 +15,7 @@ export const CastList = ({ cast }: Props) => {
 
   return (
     <div className={style.castSection}>
-      <h2>Актеры</h2>
+      <h2>Actors</h2>
       <div className={style.castList}>
         {displayedCast.map(actor => (
           <div key={actor.id} className={style.castItem}>
