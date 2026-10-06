@@ -30,6 +30,21 @@
     font-size: 15px;
 }
 
+.searchInputError {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2) !important;
+    background-color: #fef2f2 !important;
+    color: #333 !important;
+}
+
+.errorMessage {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 4px 0 0;
+    width: 100%;
+    text-align: left;
+}
+
 /* Кнопка — ТОЧНО как было в SearchPage */
 .searchButton {
     padding: 12px 32px;

@@ -1,6 +1,6 @@
-// src/components/SearchBar/SearchBar.tsx
-import {type ChangeEvent, type SyntheticEvent} from 'react';
+import {type ChangeEvent, type SyntheticEvent, useState} from 'react';
 import style from './SearchBar.module.css';
+import {searchQuerySchema} from "../../../validations";
 
 type Props = {
     value: string;
@@ -21,18 +21,27 @@ export const SearchBar = ({
                               disabled = false,
                               className = '',
                           }: Props) => {
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange(e.target.value);
-    };
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!disabled) {
-            onSubmit();
+
+        const result = searchQuerySchema.safeParse(value);
+        if (!result.success) {
+            setError(result.error.issues[0].message);
+            return;
         }
+
+        setError(null);
+        onSubmit();
     };
 
-    const isDisabled = disabled || value.trim() === '';
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setError(null);
+        onChange(e.target.value);
+    };
+
+    const isButtonDisabled = disabled || value.trim().length === 0;
 
     return (
         <form
@@ -41,20 +50,27 @@ export const SearchBar = ({
             role="search"
         >
             <input
-                className={style.searchInput}
+                className={`${style.searchInput} ${error ? style.searchInputError : ''}`}
                 type="search"
                 placeholder={placeholder}
                 value={value}
                 onChange={handleChange}
                 autoComplete="off"
+                aria-invalid={!!error}
+                aria-describedby={error ? 'search-error' : undefined}
             />
             <button
                 className={style.searchButton}
                 type="submit"
-                disabled={isDisabled}
+                disabled={isButtonDisabled}
             >
                 {buttonText}
             </button>
+            {error && (
+                <p id="search-error" className={style.errorMessage}>
+                    {error}
+                </p>
+            )}
         </form>
     );
 };
