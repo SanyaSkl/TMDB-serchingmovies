@@ -1,7 +1,7 @@
 import { useAppSelector } from '@/hooks/useAppSelector.ts'
 import style from './FavoritesPage.module.css'
 import { selectFavorites } from '@/store/favoritesSlice.ts'
-import {MovieCard} from "@/components/movie/MovieCard/MovieCard.tsx";
+import { MovieCard } from '@/components/movie/MovieCard/MovieCard.tsx'
 
 export const FavoritesPage = () => {
   const favorites = useAppSelector(selectFavorites)

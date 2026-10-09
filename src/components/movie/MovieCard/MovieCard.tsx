@@ -4,7 +4,7 @@ import { addFavorite, removeFavorite, selectIsFavorite } from '@/store/favorites
 import style from './MovieCard.module.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import type {Movie} from "@/validations";
+import type { Movie } from '@/validations'
 
 type Props = {
   movie: Movie

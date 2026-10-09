@@ -1,3 +1,3 @@
-export * from './movie.schema';
-export * from './search.schema';
-export * from './env.schema';
+export * from './movie.schema'
+export * from './search.schema'
+export * from './env.schema'

@@ -1,6 +1,6 @@
 import style from './SimilarMovies.module.css'
 import { MovieCard } from '../MovieCard/MovieCard.tsx'
-import type {Movie} from "@/validations";
+import type { Movie } from '@/validations'
 
 type Props = {
   movies: Movie[]

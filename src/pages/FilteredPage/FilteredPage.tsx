@@ -5,11 +5,11 @@ import {useDebounce} from '@/hooks/useDebounce.ts'
 import {useMediaQuery} from '@/hooks/useMediaQuery.ts'
 import {Slider, TextField} from '@mui/material'
 import style from './FilteredPage.module.css'
-import {MovieGridSkeleton} from "@/components/skeletons";
-import {GenreFilter} from "@/components/movie/GenreFilter/GenreFilter.tsx";
-import {ErrorMessage} from "@/components/ui/ErrorMessage/ErrorMessage.tsx";
-import {MovieCard} from "@/components/movie/MovieCard/MovieCard.tsx";
-import {Pagination} from "@/components/ui/Pagination/Pagination"
+import {MovieGridSkeleton} from '@/components/skeletons'
+import {GenreFilter} from '@/components/movie/GenreFilter/GenreFilter.tsx'
+import {ErrorMessage} from '@/components/ui/ErrorMessage/ErrorMessage.tsx'
+import {MovieCard} from '@/components/movie/MovieCard/MovieCard.tsx'
+import {Pagination} from '@/components/ui/Pagination/Pagination'
 
 export const FilteredPage = () => {
     const [page, setPage] = useState(1)

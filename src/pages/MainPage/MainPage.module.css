@@ -19,8 +19,8 @@
   margin-bottom: 64px;
 
   background-image:
-          linear-gradient(rgba(4, 21, 45, 0.3) 0%, rgba(18, 18, 18, 0.95) 79.17%),
-          var(--hero-backdrop, none);
+    linear-gradient(rgba(4, 21, 45, 0.3) 0%, rgba(18, 18, 18, 0.95) 79.17%),
+    var(--hero-backdrop, none);
 }
 
 .content {
