@@ -1,5 +1,5 @@
 import style from './CastList.module.css'
-import type {Actor} from "../../../validations";
+import type {Actor} from "@/validations";
 
 
 type Props = {

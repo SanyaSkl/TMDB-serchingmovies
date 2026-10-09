@@ -1,10 +1,11 @@
 import {Navigate, useNavigate, useParams} from 'react-router-dom'
-import {useGetMovieCreditsQuery, useGetMovieDetailsQuery, useGetSimilarMoviesQuery,} from '../../api/tmdbApi.ts'
-import {ErrorMessage} from '../../components/ui/ErrorMessage/ErrorMessage.tsx'
+import {useGetMovieCreditsQuery, useGetMovieDetailsQuery, useGetSimilarMoviesQuery,} from '@/api/tmdbApi.ts'
 import style from './MovieDetailsPage.module.css'
-import {CastList} from '../../components/movie/CastList/CastList.tsx'
-import {SimilarMovies} from '../../components/movie/SimilarMovies/SimilarMovies.tsx'
-import {MovieDetailsHeader} from "../../components/movie/MovieDetailsHeader/MovieDetailsHeader.tsx";
+import {ErrorMessage} from "@/components/ui/ErrorMessage/ErrorMessage.tsx";
+import {MovieDetailsHeader} from "@/components/movie/MovieDetailsHeader/MovieDetailsHeader.tsx";
+import {CastList} from "@/components/movie/CastList/CastList.tsx";
+import {SimilarMovies} from "@/components/movie/SimilarMovies/SimilarMovies.tsx";
+
 
 export const MovieDetailsPage = () => {
     const {id} = useParams<{ id: string }>()

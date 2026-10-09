@@ -1,8 +1,8 @@
-import type {Movie} from '../../../types/movie.types.ts';
 import {Link} from 'react-router-dom';
 import style from './MovieSection.module.css';
 import {MovieGridSkeleton} from "../../skeletons";
 import {MovieCard} from "../MovieCard/MovieCard.tsx";
+import type {Movie} from "@/validations";
 
 
 type Props = {

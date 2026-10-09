@@ -1,10 +1,10 @@
 import {useMemo, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {useGetCategoryMoviesQuery, useGetPopularMovieQuery,} from '../../api/tmdbApi';
+import {useGetCategoryMoviesQuery, useGetPopularMovieQuery,} from '@/api/tmdbApi.ts';
 import style from './MainPage.module.css';
-import {SearchBar} from "../../components/ui/SearchBar/SearchBar.tsx";
-import {MovieSection} from '../../components/movie/MovieSection/MovieSection';
-import {HeroSkeleton} from '../../components/skeletons';
+import {HeroSkeleton} from '@/components/skeletons';
+import {SearchBar} from "@/components/ui/SearchBar/SearchBar.tsx";
+import {MovieSection} from "@/components/movie/MovieSection/MovieSection.tsx";
 
 
 export const MainPage = () => {

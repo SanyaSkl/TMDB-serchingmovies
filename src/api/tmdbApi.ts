@@ -10,7 +10,7 @@ import {
     movieDetailsSchema,
     type MovieResponse,
     movieResponseSchema,
-} from '../validations'
+} from '@/validations'
 
 const validate = <T>(schema: ZodType<T>) => (data: unknown): T => {
     if (import.meta.env.DEV) {

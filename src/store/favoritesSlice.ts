@@ -1,6 +1,6 @@
 import {createSlice, type PayloadAction} from '@reduxjs/toolkit'
 import {z} from 'zod';
-import {type Movie, movieSchema} from '../validations';
+import {type Movie, movieSchema} from '@/validations';
 
 const FAVORITES_STORAGE_KEY = 'favorites'
 

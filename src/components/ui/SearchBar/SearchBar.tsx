@@ -1,6 +1,6 @@
 import {type ChangeEvent, type SyntheticEvent, useState} from 'react';
 import style from './SearchBar.module.css';
-import {searchQuerySchema} from "../../../validations";
+import {searchQuerySchema} from "@/validations";
 
 type Props = {
     value: string;

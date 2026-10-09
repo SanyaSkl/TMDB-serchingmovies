@@ -1,4 +1,4 @@
-import {envSchema} from '../validations';
+import {envSchema} from '@/validations';
 
 const parsed = envSchema.safeParse({
     VITE_BASE_URL: import.meta.env.VITE_BASE_URL,

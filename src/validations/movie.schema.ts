@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import {z} from 'zod';
 
 // БАЗОВЫЕ СХЕМЫ
 export const genreSchema = z.object({
@@ -12,7 +12,7 @@ export const movieSchema = z.object({
     poster_path: z.string().nullable(),
     backdrop_path: z.string().nullable().optional(),
     vote_average: z.number().min(0).max(10),
-    vote_count: z.number().nonnegative().optional(),
+    vote_count: z.number().nonnegative(),
     release_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).catch(''),
     overview: z.string().default(''),
 });

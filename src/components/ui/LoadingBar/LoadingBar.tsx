@@ -1,7 +1,7 @@
 import LinearProgress from '@mui/material/LinearProgress';
 import Box from '@mui/material/Box';
-import {useAppSelector} from "../../../hooks/useAppSelector.ts";
-import {selectIsFetching} from "../../../store/selectors.ts";
+import {useAppSelector} from "@/hooks/useAppSelector.ts";
+import {selectIsFetching} from "@/store/selectors.ts";
 
 
 export const LoadingBar = () => {

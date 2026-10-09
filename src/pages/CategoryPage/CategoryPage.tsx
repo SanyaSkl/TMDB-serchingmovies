@@ -1,12 +1,12 @@
 import {Navigate, NavLink, useParams} from 'react-router-dom'
 import {useState} from 'react'
-import {useGetCategoryMoviesQuery} from '../../api/tmdbApi.ts'
-import {MovieCard} from '../../components/movie/MovieCard/MovieCard.tsx'
-import {ErrorMessage} from '../../components/ui/ErrorMessage/ErrorMessage.tsx'
+import {useGetCategoryMoviesQuery} from '@/api/tmdbApi.ts'
 import {Pagination} from '../../components/ui/Pagination/Pagination.tsx'
 import style from './CategoryPage.module.css'
-import {CATEGORIES} from '../../constants/categories.ts'
-import {MovieGridSkeleton} from "../../components/skeletons";
+import {CATEGORIES} from '@/constants/categories.ts'
+import {MovieGridSkeleton} from "@/components/skeletons";
+import {MovieCard} from "@/components/movie/MovieCard/MovieCard.tsx";
+import {ErrorMessage} from "@/components/ui/ErrorMessage/ErrorMessage.tsx";
 
 
 export const CategoryPage = () => {

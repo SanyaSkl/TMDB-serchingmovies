@@ -1,12 +1,12 @@
 import {useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
-import {useGetSearchMoviesQuery} from '../../api/tmdbApi';
-import {MovieCard} from '../../components/movie/MovieCard/MovieCard';
-import {ErrorMessage} from '../../components/ui/ErrorMessage/ErrorMessage';
-import {Pagination} from '../../components/ui/Pagination/Pagination';
+import {useGetSearchMoviesQuery} from '@/api/tmdbApi.ts';
 import style from './SearchPage.module.css';
-import {SearchBar} from "../../components/ui/SearchBar/SearchBar.tsx";
-import {MovieGridSkeleton} from "../../components/skeletons";
+import {MovieGridSkeleton} from "@/components/skeletons";
+import {Pagination} from "@/components/ui/Pagination/Pagination.tsx";
+import {SearchBar} from "@/components/ui/SearchBar/SearchBar.tsx";
+import {ErrorMessage} from "@/components/ui/ErrorMessage/ErrorMessage.tsx";
+import {MovieCard} from "@/components/movie/MovieCard/MovieCard.tsx";
 
 
 export const SearchPage = () => {

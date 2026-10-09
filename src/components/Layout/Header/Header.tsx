@@ -1,10 +1,10 @@
 import {NavLink} from 'react-router-dom'
 import style from './Header.module.css'
 import logo from './../../../assets/logo.svg'
-import {useAppDispatch} from "../../../hooks/useAppDispatch.ts";
-import {useAppSelector} from "../../../hooks/useAppSelector.ts";
-import {selectThemeMode, toggleTheme} from "../../../store/themeSlice.ts";
-import {Path} from '../../../constants'
+import {useAppDispatch} from "@/hooks/useAppDispatch.ts";
+import {useAppSelector} from "@/hooks/useAppSelector.ts";
+import {selectThemeMode, toggleTheme} from "@/store/themeSlice.ts";
+import {Path} from '@/constants'
 
 export const Header = () => {
     const themeMode = useAppSelector(selectThemeMode)
