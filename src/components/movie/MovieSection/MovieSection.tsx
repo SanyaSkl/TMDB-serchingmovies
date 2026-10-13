@@ -15,7 +15,7 @@ export const MovieSection = ({ title, movies, linkTo, isLoading }: Props) => {
   if (isLoading) {
     return (
       <section className={style.section}>
-        <div className={style.section}>
+        <div className={style.sectionHeader}>
           <h2 className={style.sectionTitle}>{title}</h2>
         </div>
         <MovieGridSkeleton count={6} />

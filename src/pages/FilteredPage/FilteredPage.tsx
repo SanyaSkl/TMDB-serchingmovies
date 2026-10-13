@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react'
+import {type SyntheticEvent, useMemo, useState} from 'react'
 import {useGetDiscoverMoviesQuery} from '@/api/tmdbApi.ts'
 import {useFilters} from '@/hooks/useFilters.ts'
 import {useDebounce} from '@/hooks/useDebounce.ts'
@@ -27,7 +27,7 @@ export const FilteredPage = () => {
         setPage(1)
     }
 
-    const handleRatingChange = (_: Event, value: number | number[]) => {
+    const handleRatingChange = (_: SyntheticEvent | Event, value: number | number[]) => {
         const [min, max] = value as number[]
         updateFilter('minRating', min)
         updateFilter('maxRating', max)

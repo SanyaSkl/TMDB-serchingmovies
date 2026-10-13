@@ -47,7 +47,7 @@ export const SearchPage = () => {
       {submittedQuery !== '' && isLoading && <MovieGridSkeleton count={12} />}
       {submittedQuery !== '' && error && <ErrorMessage error={error} title="Search error:" />}
       {submittedQuery !== '' && !isLoading && !error && data?.results?.length === 0 && (
-        <p className={style.searchHint}>No results "{submittedQuery}" found for</p>
+        <p className={style.searchHint}>No results found for "{submittedQuery}"</p>
       )}
       {submittedQuery !== '' && data && data.results.length > 0 && (
         <>

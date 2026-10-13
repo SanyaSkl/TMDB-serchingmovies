@@ -45,7 +45,7 @@ export const Footer = () => {
                             <a
                                 href={href}
                                 target={href.startsWith('tel:') ? undefined : '_blank'}
-                                rel={href.startsWith('tel:') ? undefined : 'opener referrer'}
+                                rel={href.startsWith('tel:') ? undefined : 'noopener noreferrer'}
                                 className={style.link}
                                 aria-label={label}
                             >
