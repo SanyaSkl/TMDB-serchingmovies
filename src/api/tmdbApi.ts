@@ -28,7 +28,7 @@ export const tmdbApi = createApi({
   }),
   endpoints: build => ({
     getPopularMovie: build.query<MovieResponse, number>({
-      query: page => `/movie/popular?page=${page}&api_key=${env.VITE_API_KEY}`, // ← ИЗ ENV
+      query: page => `/movie/popular?page=${page}&api_key=${env.VITE_API_KEY}`,
       transformResponse: validate(movieResponseSchema),
     }),
     getCategoryMovies: build.query<MovieResponse, { category: string; page: number }>({
