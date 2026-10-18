@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import {movieResponseSchema, movieSchema} from "@/validations";
-
+import { movieResponseSchema, movieSchema } from '@/validations'
 
 const validMovie = {
   id: 123,

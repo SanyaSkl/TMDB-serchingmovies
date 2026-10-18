@@ -3,7 +3,9 @@
   color: var(--footer-text);
   padding: 24px 40px;
   margin-top: auto;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .inner {
@@ -43,7 +45,9 @@
   font-weight: 500;
   padding: 6px 10px;
   border-radius: 8px;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .link:hover {
@@ -79,7 +83,7 @@
 
 @media (max-width: 480px) {
   .label {
-    display: none;   /* оставляем только иконки на узких экранах */
+    display: none; /* оставляем только иконки на узких экранах */
   }
 
   .link {

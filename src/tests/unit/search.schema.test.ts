@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import {searchQuerySchema} from "@/validations";
+import { searchQuerySchema } from '@/validations'
 
 describe('searchQuerySchema', () => {
   it('accepts a query of 2–100 characters', () => {

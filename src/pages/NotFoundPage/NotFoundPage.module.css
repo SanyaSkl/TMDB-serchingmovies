@@ -1,114 +1,122 @@
 .page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 200px);
-    padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 500px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
 }
 
 .image {
-    width: 240px;
-    height: auto;
-    margin-bottom: 24px;
-    opacity: 0.9;
-    animation: float 3s ease-in-out infinite;
+  width: 240px;
+  height: auto;
+  margin-bottom: 24px;
+  opacity: 0.9;
+  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .title {
-    font-size: 72px;
-    font-weight: 800;
-    color: #01b4e4;
-    margin: 0 0 8px;
-    line-height: 1;
-    letter-spacing: -2px;
+  font-size: 72px;
+  font-weight: 800;
+  color: #01b4e4;
+  margin: 0 0 8px;
+  line-height: 1;
+  letter-spacing: -2px;
 }
 
 .subtitle {
-    font-size: 18px;
-    color: var(--text-secondary, #666);
-    margin: 0 0 32px;
-    line-height: 1.5;
+  font-size: 18px;
+  color: var(--text-secondary, #666);
+  margin: 0 0 32px;
+  line-height: 1.5;
 }
 
 .actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .backButton,
 .homeButton {
-    padding: 12px 28px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
-    border: 2px solid transparent;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    color 0.2s ease;
+  border: 2px solid transparent;
 }
 
 .backButton {
-    background: #01b4e4;
-    color: #fff;
+  background: #01b4e4;
+  color: #fff;
 }
 
 .backButton:hover {
-    background: #0097c2;
-    transform: scale(1.03);
+  background: #0097c2;
+  transform: scale(1.03);
 }
 
 .homeButton {
-    background: transparent;
-    color: #01b4e4;
-    border-color: #01b4e4;
+  background: transparent;
+  color: #01b4e4;
+  border-color: #01b4e4;
 }
 
 .homeButton:hover {
-    background: #01b4e4;
-    color: #fff;
-    transform: scale(1.03);
+  background: #01b4e4;
+  color: #fff;
+  transform: scale(1.03);
 }
 
 .backButton:active,
 .homeButton:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
 @media (max-width: 480px) {
-    .image {
-        width: 180px;
-    }
+  .image {
+    width: 180px;
+  }
 
-    .title {
-        font-size: 56px;
-    }
+  .title {
+    font-size: 56px;
+  }
 
-    .subtitle {
-        font-size: 16px;
-    }
+  .subtitle {
+    font-size: 16px;
+  }
 
-    .actions {
-        flex-direction: column;
-        width: 100%;
-    }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .backButton,
-    .homeButton {
-        width: 100%;
-    }
+  .backButton,
+  .homeButton {
+    width: 100%;
+  }
 }

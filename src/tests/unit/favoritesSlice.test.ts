@@ -1,6 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import type { Movie } from '@/validations'
-import { addFavorite, clearFavorites, favoritesSlice, removeFavorite } from '@/store/favoritesSlice.ts'
+import {
+  addFavorite,
+  clearFavorites,
+  favoritesSlice,
+  removeFavorite,
+} from '@/store/favoritesSlice.ts'
 
 const movie: Movie = {
   id: 123,
