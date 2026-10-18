@@ -8,6 +8,18 @@
   --shadow-color: rgba(0, 0, 0, 0.15);
   --border-color: #e5e7eb;
   --hero-backdrop: none;
+
+  --header-bg: #ffffff;
+  --header-text: #032541;
+  --footer-bg: #f5f5f5;
+  --footer-text: #666666;
+
+  --search-bg: #ffffff;
+  --search-text: #333333;
+  --search-border: #d1d5db;
+
+  --hero-gradient: linear-gradient(rgba(255, 255, 255, 0.4) 0%, rgba(245, 245, 245, 0.95) 80%);
+  --hero-text: #032541;
 }
 
 [data-theme='dark'] {
@@ -20,6 +32,18 @@
   --text-secondary: #aaaaaa;
   --shadow-color: rgba(0, 0, 0, 0.5);
   --border-color: #333333;
+
+  --header-bg: #032541;
+  --header-text: #ffffff;
+  --footer-bg: #032541;
+  --footer-text: #ffffff;
+
+  --search-bg: #213355;
+  --search-text: #ffffff;
+  --search-border: #484870;
+
+  --hero-gradient: linear-gradient(rgba(4, 21, 45, 0.3) 0%, rgba(18, 18, 18, 0.95) 79.17%);
+  --hero-text: #ffffff;
 }
 
 /* ===== Базовые сбросы ===== */

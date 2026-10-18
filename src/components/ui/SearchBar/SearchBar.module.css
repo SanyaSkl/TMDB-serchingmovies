@@ -10,15 +10,15 @@
   width: 400px;
   padding: 12px 18px;
   font-size: 16px;
-  border: 1px solid #484870;
+  border: 1px solid var(--search-border);
   border-radius: 30px;
   outline: none;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease,
     background-color 0.3s ease;
-  background-color: #213355;
-  color: #ffffff;
+  background-color: var(--background-card);
+  color: var(--text-primary);
 }
 
 .searchInput:focus {
@@ -29,7 +29,7 @@
 }
 
 .searchInput::placeholder {
-  color: #9ca3af;
+  color: var(--text-secondary);
   font-size: 15px;
 }
 

@@ -1,11 +1,8 @@
 .header {
   width: 100%;
-  background-color: #032541;
-  color: #fff;
-}
-
-.header[data-theme='dark'] {
-  background-color: #1a1a2e;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .inner {
@@ -47,7 +44,7 @@
 }
 
 .link {
-  color: #ffffff;
+  color: var(--header-text);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -80,7 +77,8 @@
 }
 
 .separator {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--header-text);
+  opacity: 0.4;
   font-size: 14px;
   user-select: none;
   pointer-events: none;
