@@ -1,77 +1,86 @@
-![Uploading Dark theme.png…]()
-![Uploading Light theme.png…]()
-# React + TypeScript + Vite
+# 🎬 TMDB Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive movie discovery app built with React, TypeScript, Redux Toolkit Query, React Router, Material UI, CSS Modules, and Zod. It uses The Movie Database (TMDB) API to browse movie categories, search titles, inspect details and cast, discover movies with filters, and save favorites locally.
 
-Currently, two official plugins are available:
+**🔗 [Live Demo](https://твой-сайт-на-relaxdev.ru)** | **💼 [LinkedIn](https://linkedin.com/in/alexandr-sklyarenko-0b41793bb)** | **📱 [Telegram](https://t.me/SanyaStOskol)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Screenshots
 
-## React Compiler
+|              Dark Theme               |               Light Theme               |
+|:-------------------------------------:|:---------------------------------------:|
+| ![Dark Theme](/public/Dark-theme.png) | ![Light Theme](/public/Light-theme.png) |
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ✨ Features
 
-Note: This will impact Vite dev & build performances.
+- **Browse:** Popular, top-rated, upcoming, and now-playing movies.
+- **Search & Filter:** Search titles, filter by genre, rating, release year, and sort order.
+- **Details:** Comprehensive movie details page (rating, genres, runtime, budget, revenue, cast, and similar movies).
+- **Favorites:** Save/remove favorite movies (persisted in `localStorage`).
+- **Theming:** Seamless switch between light and dark themes (persisted in `localStorage`).
+- **Robustness:** Validate environment variables and API responses using Zod. Show loading placeholders (skeletons) and API error messages.
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Core:** React 18, TypeScript, Vite
+- **State & Data Fetching:** Redux Toolkit, RTK Query
+- **Routing:** React Router (v7)
+- **Styling:** Material UI, CSS Modules, CSS Variables
+- **Validation:** Zod
+- **Testing:** Vitest, React Testing Library, jsdom
+- **Code Quality:** ESLint, Prettier
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Requirements
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Node.js:** Current Node 22 LTS release (or compatible with Vite/Vitest versions in `package.json`).
+- **Package Manager:** `pnpm` (the repository includes `pnpm-lock.yaml`).
+- **API Key:** A TMDB v3 API key.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SanyaSkl/TMDB-serchingmovies.git
+   cd TMDB-serchingmovies
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+bash
+pnpm install
+Set up environment variables:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+bash
+cp .env.example .env
+Edit .env and replace the placeholder with your own TMDB v3 API key:
+
+dotenv
+VITE_BASE_URL=https://api.themoviedb.org/3
+VITE_API_KEY=your_tmdb_v3_api_key
+Run the development server:
+
+bash
+pnpm dev
+
+🧪 Quality Checks
+bash
+pnpm test:run       # run tests once
+pnpm test:coverage  # run tests and generate coverage
+pnpm lint           # run ESLint
+pnpm build          # type-check and create a production build
+pnpm format:check   # check formatting
+
+📁 Project Structure
+text
+src/
+├── api/             # RTK Query endpoints for TMDB
+├── app/             # app-level composition and theme application
+├── components/
+│   ├── Layout/      # header, footer, route outlet and app layout
+│   ├── movie/       # movie cards, genres, cast and related movie UI
+│   ├── skeletons/   # loading placeholders (MUI Skeleton)
+│   └── ui/          # reusable UI such as search, errors, pagination
+├── config/          # environment loading and validation
+├── constants/       # route paths, movie categories and filter options
+├── hooks/           # typed Redux hooks, filters, debounce and media query
+├── pages/           # route-level pages
+├── store/           # Redux store, favorites, theme and selectors
+├── test/            # test setup
+└── validations/     # Zod schemas and inferred data types
