@@ -1,51 +1,113 @@
-.moviesCard {
-  width: 200px;
-  flex-shrink: 0;
-  background: var(--background-secondary, #fff);
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 200px; /* Фиксируем ширину всей колонки */
+  cursor: pointer;
+}
+
+/* Постер — это и есть визуальная карточка */
+.posterWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.15));
-  transition:
-    transform 0.2s,
-    background 0.3s,
-    box-shadow 0.3s;
+  transition: transform 0.2s;
+  background-color: var(--background-secondary, #f9f9f9);
 }
 
-.moviesCard:hover {
-  transform: translateY(-5px);
+.posterWrapper:hover {
+  transform: translateY(-5px); /* Легкий подъем при наведении */
 }
 
-.moviesCard img {
+.posterWrapper img {
   width: 100%;
-  aspect-ratio: 2/3;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.moviesCard h3 {
-  padding: 8px 10px 0;
-  font-size: 18px;
+/* Кружок с рейтингом */
+.ratingCircle {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #081c22;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  border: 2px solid #21d07a; /* По умолчанию зеленый, меняется через inline-style */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s;
+}
+
+/* Кнопка избранного (появляется при наведении) */
+.favoriteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  opacity: 0; /* Скрыто по умолчанию */
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Показываем кнопку, когда курсор на постере */
+.posterWrapper:hover .favoriteButton {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.favoriteButton:hover {
+  background-color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Блок с названием под карточкой */
+.info {
+  margin-top: 14px;
+  padding: 0 4px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
   color: var(--text-primary, #333);
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  /* Обрезка длинных названий */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color 0.3s;
 }
 
-.rating {
-  display: block;
-  padding: 5px 10px;
+.title:hover {
+  color: #01b4e4; /* Подсветка названия при наведении */
+}
+
+.date {
+  font-size: 14px;
   color: var(--text-secondary, #666);
   transition: color 0.3s;
-}
-
-.buttonLike {
-  margin-left: 10px;
-  margin-bottom: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.buttonLike:hover {
-  transform: scale(1.2);
 }

@@ -19,7 +19,6 @@
   --search-border: #d1d5db;
 
   --hero-gradient: linear-gradient(rgba(255, 255, 255, 0.4) 0%, rgba(245, 245, 245, 0.95) 80%);
-  --hero-text: #032541;
 }
 
 [data-theme='dark'] {
@@ -43,17 +42,14 @@
   --search-border: #484870;
 
   --hero-gradient: linear-gradient(rgba(4, 21, 45, 0.3) 0%, rgba(18, 18, 18, 0.95) 79.17%);
-  --hero-text: #ffffff;
 }
 
-/* ===== Базовые сбросы ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== Тело страницы ===== */
 body {
   font-family: 'Source Sans Pro', Arial, sans-serif;
   background-color: var(--background-body);
@@ -63,13 +59,11 @@ body {
     color 0.3s ease;
 }
 
-/* ===== Изображения ===== */
 img {
   display: block;
   max-width: 100%;
 }
 
-/* ===== Ссылки ===== */
 a {
   text-decoration: none;
 }
