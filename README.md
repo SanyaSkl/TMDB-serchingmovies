@@ -2,13 +2,13 @@
 
 A responsive movie discovery app built with React, TypeScript, Redux Toolkit Query, React Router, Material UI, CSS Modules, and Zod. It uses The Movie Database (TMDB) API to browse movie categories, search titles, inspect details and cast, discover movies with filters, and save favorites locally.
 
-**🔗 [Live Demo](https://твой-сайт-на-relaxdev.ru)** | **💼 [LinkedIn](https://linkedin.com/in/alexandr-sklyarenko-0b41793bb)** | **📱 [Telegram](https://t.me/SanyaStOskol)**
+**🔗 [Live Demo]()** | **💼 [LinkedIn](https://linkedin.com/in/alexandr-sklyarenko-0b41793bb)** | **📱 [Telegram](https://t.me/SanyaStOskol)**
 
 ## 📸 Screenshots
 
 |              Dark Theme               |               Light Theme               |
 |:-------------------------------------:|:---------------------------------------:|
-| ![Dark Theme](/public/Dark-theme.png) | ![Light Theme](/public/Light-theme.png) |
+| ![dark theme](/public/dark-theme.png) | ![light theme](/public/light-theme.png) |
 
 ## ✨ Features
 
