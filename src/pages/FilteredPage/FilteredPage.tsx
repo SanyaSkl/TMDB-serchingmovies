@@ -126,7 +126,7 @@ export const FilteredPage = () => {
                   onChange={handleRatingChange}
                   min={0}
                   max={10}
-                  step={0.5}
+                  step={0.1}
                   valueLabelDisplay="auto"
                   disableSwap
                 />
